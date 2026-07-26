@@ -1,100 +1,110 @@
-import React, { useRef, useEffect, useState } from "react";
-import mapboxgl from "mapbox-gl";
-import { NextPage } from "next";
-import MetaData from "../../components/metadata";
+import React, { useRef, useEffect } from 'react'
+import mapboxgl from 'mapbox-gl'
+import { NextPage } from 'next'
+import MetaData from '../../components/metadata'
+import NavBar from '../../components/navbar'
+import Footer from '../../components/footer'
 
-mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN ?? '';
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN ?? ''
 
 interface MapComponentProps {
-  selectedCountries: string[];
+    selectedCountries: string[]
 }
 
+const palette = [
+    '#34d399', '#22d3ee', '#a78bfa', '#f472b6',
+    '#f59e0b', '#fb7185', '#60a5fa', '#4ade80',
+]
+
 const MapComponent: React.FC<MapComponentProps> = ({ selectedCountries }) => {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-  const selectedCountriesRef = useRef<string[]>(selectedCountries);
+    const mapContainer = useRef<HTMLDivElement>(null)
+    const map = useRef<mapboxgl.Map | null>(null)
 
-  useEffect(() => {
-    selectedCountriesRef.current = selectedCountries;
+    useEffect(() => {
+        map.current = new mapboxgl.Map({
+            container: mapContainer.current!,
+            style: 'mapbox://styles/mapbox/dark-v11',
+            center: [30, 20],
+            zoom: 1.6,
+        })
 
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current!,
-      style: 'mapbox://styles/mapbox/light-v10',
-      center: [0, 20],
-      zoom: 2,
-    });
+        map.current.on('load', () => {
+            map.current!.addSource('countries', {
+                type: 'geojson',
+                data: 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_countries.geojson',
+            })
 
-    map.current.on('load', () => {
-      map.current!.addSource('countries', {
-        type: 'geojson',
-        data: 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_countries.geojson',
-      });
+            map.current!.addLayer({
+                id: 'countries-borders',
+                type: 'line',
+                source: 'countries',
+                paint: { 'line-color': 'rgba(148,163,184,0.35)', 'line-width': 0.5 },
+            })
 
-      map.current!.addLayer({
-        id: 'countries-borders',
-        type: 'line',
-        source: 'countries',
-        paint: {
-          'line-color': 'black',
-          'line-width': 1,
-        },
-      });
+            selectedCountries.forEach((code, i) => {
+                map.current!.addLayer({
+                    id: 'highlighted-country-' + code,
+                    type: 'fill',
+                    source: 'countries',
+                    paint: {
+                        'fill-color': palette[i % palette.length],
+                        'fill-opacity': 0.55,
+                    },
+                    filter: ['in', ['get', 'iso_a2'], ['literal', [code]]],
+                })
+            })
+        })
 
-      var colors = [
-        '#FF5252', '#FF4081', '#7C4DFF', '#536DFE', 
-        '#40C4FF', '#18FFFF', '#64FFDA', '#69F0AE', 
-        '#B2FF59', '#FFD740', '#FFAB40', '#FF6D00', 
-        '#FF8A80', '#E040FB', '#B388FF', '#00E5FF', 
-        '#1DE9B6', '#FFC107', '#D81B60', '#304FFE',
-      ];
+        return () => map.current?.remove()
+    }, [selectedCountries])
 
+    return <div ref={mapContainer} className="w-full h-[70vh] md:h-[75vh] rounded-2xl overflow-hidden" />
+}
 
-      for (var i = 0; i < selectedCountries.length; i++){
-        map.current!.addLayer({
-          'id': 'highlighted-country' + i.toString(),
-          'type': 'fill',
-          'source': 'countries',
-          'paint': {
-              'fill-color': colors[Math.floor(Math.random() * colors.length)],
-              'fill-opacity': 0.5,
-          },
-          'filter': ['in', ['get', 'iso_a2'], ['literal', [selectedCountries[i]]]],
-        });
-      } 
-
-      // map.current!.on('click', 'highlighted-country', (e) => {
-      //   const country = e.features?.[0].properties?.iso_a2;
-      //   if (country) {
-      //     window.location.href = `/country/${country}`;
-      //   }
-      // });
-
-      // map.current!.on('mouseenter', 'highlighted-country', () => {
-      //   map.current!.getCanvas().style.cursor = 'pointer';
-      // });
-
-      // map.current!.on('mouseleave', 'highlighted-country', () => {
-      //   map.current!.getCanvas().style.cursor = '';
-      // });
-
-    });
-
-    return () => map.current?.remove();
-  }, [selectedCountries]);
-
-  return <div ref={mapContainer} className="w-screen h-screen" />;
-};
+const countries = [
+    { code: 'SD', name: 'Sudan' },
+    { code: 'MY', name: 'Malaysia' },
+    { code: 'LK', name: 'Sri Lanka' },
+    { code: 'AE', name: 'UAE' },
+    { code: 'KE', name: 'Kenya' },
+    { code: 'MA', name: 'Morocco' },
+    { code: 'EG', name: 'Egypt' },
+]
 
 const VisitedCountries: NextPage = () => {
-  return (
-      <div>
-          <MetaData title="Alzobair Elkhalifa portfolio" description="Alzobair Elkhalifa's portfolio visited countries list page"></MetaData>
-          <div className="backdrop-blur w-full h-screen">
-              <MapComponent selectedCountries={['SD', 'MY', 'LK', 'AE', 'KE', 'MA', 'EG']} />
-          </div>
-      </div >
-  )
-};
+    return (
+        <div className="min-h-screen flex flex-col">
+            <MetaData
+                title="Travels · Alzobair Elkhalifa"
+                description="Map of countries I've been to."
+            />
+            <NavBar />
 
+            <section className="relative z-10 max-w-7xl mx-auto w-full px-5 md:px-8 lg:px-12 pt-16 md:pt-20 pb-6">
+                <div className="grid md:grid-cols-2 md:items-end gap-6">
+                    <div>
+                        <span className="section-title">Travels</span>
+                        <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+                            Countries <span className="gradient-text">I&apos;ve visited</span>.
+                        </h1>
+                    </div>
+                    <div className="flex flex-wrap gap-2 md:justify-end">
+                        {countries.map((c) => (
+                            <span key={c.code} className="chip">{c.name}</span>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
-export default VisitedCountries;
+            <section className="relative z-10 flex-1 max-w-7xl mx-auto w-full px-5 md:px-8 lg:px-12 pb-16">
+                <div className="surface p-3 md:p-4">
+                    <MapComponent selectedCountries={countries.map((c) => c.code)} />
+                </div>
+            </section>
+
+            <Footer />
+        </div>
+    )
+}
+
+export default VisitedCountries

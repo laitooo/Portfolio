@@ -5,13 +5,12 @@ export const jobsList: Jop[] = [
         id: 1,
         title: "Front-end Developer",
         details: "Neo Pass" +
-        "\n• Joined the development of Neo One, a leading fin-tech mobile startup in the UAE. Offering open banking, virtual banking " + 
+        "\n• Joined the development of Neo One, a leading fin-tech mobile startup in the UAE. Offering open banking, virtual banking " +
         "andcrypto services, built using Flutter." +
-        "\n• Participated in the development and design of Neo-Pass a website for booking flights, travel offers and hotels deals, " + 
+        "\n• Participated in the development and design of Neo-Pass a website for booking flights, travel offers and hotels deals, " +
         "offering high discounted flights with the possibility of buying using crypto payments.",
-        startDate: "May 2024",
-        endDate: "Until now",
-        workDuration: "26 years",
+        startDate: new Date(2024, 4, 1),
+        endDate: new Date(2026, 6, 22),
         toolsUsed: "Flutter",
         companyName: "My NEO Group & Sheikh Al Maktoum NEO Technologies",
         companyUrl: "https://www.linkedin.com/company/myneogroup/",
@@ -26,9 +25,8 @@ export const jobsList: Jop[] = [
         "to understand their unique." +
         "\n• Developed a platform for financial requests, this platform helped fund startups with an amount" +
         "that’s more than 110,000 euro.",
-        startDate: "Mar 2023",
-        endDate: "Aug 2024",
-        workDuration: "18 months",
+        startDate: new Date(2023, 2, 1),
+        endDate: new Date(2024, 7, 31),
         toolsUsed: "ReactJs and NestJs (TypeScript)",
         companyName: "249Startups",
         companyUrl: "https://www.linkedin.com/company/249startups",
@@ -44,12 +42,11 @@ export const jobsList: Jop[] = [
         " conducting code reviews. which ensured code quality and consistency." +
         "\n• Mentored and guided a team of four junior developers through the intricacies of our source code's " +
         "software architecture and imparting best practices in Flutter development.",
-        startDate: "Sep 2022",
-        endDate: "Jan 2023",
-        workDuration: "5 months",
+        startDate: new Date(2022, 8, 1),
+        endDate: new Date(2023, 0, 31),
         toolsUsed: "Flutter (Dart) and Clickup",
         companyName: "Fekra",
-        companyUrl: "https://www.linkedin.com/company/29326768/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BA%2Fzn3PzeTuWryOtbQBVOmg%3D%3D",
+        companyUrl: "https://www.linkedin.com/company/29326768/",
     },
     {
         id: 4,
@@ -61,12 +58,11 @@ export const jobsList: Jop[] = [
         "users could order a service, explore in-chat offers, or directly book a service." +
         "\n• Furthermore, I fortified the app's security posture by implementing Firebase security roles and " +
         "conducting rigorous unit tests.",
-        startDate: "Dec 2021",
-        endDate: "Aug 2022",
-        workDuration: "9 months",
+        startDate: new Date(2021, 11, 1),
+        endDate: new Date(2022, 7, 31),
         toolsUsed: "Flutter (Dart)",
         companyName: "Fekra",
-        companyUrl: "https://www.linkedin.com/company/29326768/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BA%2Fzn3PzeTuWryOtbQBVOmg%3D%3D",
+        companyUrl: "https://www.linkedin.com/company/29326768/",
     },
     {
         id: 5,
@@ -78,9 +74,8 @@ export const jobsList: Jop[] = [
         "\n• Focused on enhancing the app's chat functionality. By improving file upload/download processes " +
         "and implementing intuitive image thumbnails. " +
         "\n• Actively participated in shaping the app's features and contributed to strategic business planning.",
-        startDate: "Dec 2020",
-        endDate: "Nov 2021",
-        workDuration: "1 year",
+        startDate: new Date(2020, 11, 1),
+        endDate: new Date(2021, 10, 30),
         toolsUsed: "Flutter (Dart)",
         companyName: "Doctor Base",
         companyUrl: "https://www.linkedin.com/company/exit-fund/",
@@ -89,9 +84,8 @@ export const jobsList: Jop[] = [
         id: 6,
         title: "Android developer intern",
         details: "I took a small internship to dive more into design patterns and using version control (Git), I also learned to use Kotlin for android development.",
-        startDate: "Sep 2020",
-        endDate: "Nov 2020",
-        workDuration: "3 months",
+        startDate: new Date(2020, 8, 1),
+        endDate: new Date(2020, 10, 30),
         toolsUsed: "Android (Kotlin)",
         companyName: "Enaya tech",
         companyUrl: "https://www.linkedin.com/company/enayatech/people/",
@@ -104,11 +98,10 @@ export const jobsList: Jop[] = [
         "managing their child's access to various apps and videos. " +
         "\n• Built The second app, tailored for parents, allows parents to schedule their child's screen time, " +
         "effectively managing and allocating allowances for digital usage.",
-        startDate: "May 2019",
-        endDate: "Apr 2020",
-        workDuration: "1 year",
+        startDate: new Date(2019, 4, 1),
+        endDate: new Date(2020, 3, 30),
         toolsUsed: "Android (Java)",
         companyName: "Fekra",
-        companyUrl: "https://www.linkedin.com/company/29326768/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BA%2Fzn3PzeTuWryOtbQBVOmg%3D%3D",
+        companyUrl: "https://www.linkedin.com/company/29326768/",
     },
-];
+]
