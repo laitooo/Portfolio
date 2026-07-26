@@ -1,93 +1,104 @@
 import type { NextPage } from 'next'
 import Footer from '../../components/footer'
 import NavBar from '../../components/navbar'
-import { Document, Page, pdfjs } from 'react-pdf';
-import React, { useState, useEffect } from "react";
+import { Document, Page, pdfjs } from 'react-pdf'
+import React, { useState, useEffect } from 'react'
 import MetaData from '../../components/metadata'
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
-const Home: NextPage = () => {
-    const [numPages, setNumPages] = useState(0);
-    const size = useWindowSize();
+const Cv: NextPage = () => {
+    const [numPages, setNumPages] = useState(0)
+    const size = useWindowSize()
+
+    const width = Math.min(900, Math.max(320, size.width * 0.85))
+
     return (
-        <div data-theme="synthwave" className="bg-cover bg-[url('/images/background.jpg')] bg-fixed bg-no-repeat">
-            <MetaData title="Alzobair Elkhalifa portfolio" description="Alzobair Elkhalifa's portfolio cv page"></MetaData>
-            <div className="backdrop-blur">
-                <NavBar />
-                <div className="grid place-items-center">
-                    <a href="/files/AlzobairElkhalifaCv.pdf"
-                        className="btn btn-wide btn-outline mt-28 mb-16"
-                        target="_blank" download={true}>Download my cv</a>
-                    <Document
-                        file={"/files/AlzobairElkhalifaCv.pdf"}
-                        onLoadSuccess={(pdf) => {
-                            setNumPages(pdf.numPages);
-                        }}
-                        loading={
-                            <div role="status">
-                                <svg aria-hidden="true" className="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
-                                    <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
-                                </svg>
-                            </div>
-                        }>
-                        {
-                            Array.from(new Array(numPages), (el, index) => (
-                                <Page
-                                width={size.width * 0.8}
-                                    className="mt-10"
-                                    key={`page_${index + 1}`} pageNumber={index + 1} />
-                            ))
-                        }
-                    </Document>
-                    <a href="/files/AlzobairElkhalifaCv.pdf"
-                        className="btn btn-wide btn-outline mt-16 mb-28"
-                        target="_blank" download={true}>Download my cv</a>
+        <div className="min-h-screen flex flex-col">
+            <MetaData
+                title="CV · Alzobair Elkhalifa"
+                description="CV / Résumé of Alzobair Elkhalifa."
+            />
+            <NavBar />
+
+            <section className="relative z-10 max-w-5xl mx-auto w-full px-5 md:px-8 pt-16 md:pt-20 pb-8">
+                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                    <div>
+                        <span className="section-title">Résumé</span>
+                        <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+                            My <span className="gradient-text">CV</span>.
+                        </h1>
+                        <p className="mt-4 text-slate-400 max-w-xl">Preview below, or download the PDF.</p>
+                    </div>
+                    <a
+                        href="/files/AlzobairElkhalifaCv.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                        download
+                        className="btn-primary-accent"
+                    >
+                        Download PDF
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+                    </a>
                 </div>
-                <Footer />
-            </div>
+            </section>
+
+            <section className="relative z-10 flex-1 max-w-5xl mx-auto w-full px-5 md:px-8 pb-20">
+                <div className="surface p-4 md:p-6">
+                    <div className="rounded-xl overflow-hidden bg-slate-950/60 flex justify-center min-h-[400px]">
+                        <Document
+                            file={'/files/AlzobairElkhalifaCv.pdf'}
+                            onLoadSuccess={(pdf) => setNumPages(pdf.numPages)}
+                            loading={
+                                <div className="py-24 grid place-items-center">
+                                    <div className="w-10 h-10 rounded-full border-2 border-slate-700 border-t-emerald-400 animate-spin" />
+                                </div>
+                            }
+                        >
+                            <div className="flex flex-col items-center gap-6 py-6">
+                                {Array.from(new Array(numPages), (_, index) => (
+                                    <Page
+                                        width={width}
+                                        className="rounded-lg overflow-hidden shadow-2xl shadow-black/40"
+                                        key={`page_${index + 1}`}
+                                        pageNumber={index + 1}
+                                    />
+                                ))}
+                            </div>
+                        </Document>
+                    </div>
+                </div>
+
+                <div className="mt-8 flex justify-center">
+                    <a
+                        href="/files/AlzobairElkhalifaCv.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                        download
+                        className="btn-outline-soft"
+                    >
+                        Download PDF
+                    </a>
+                </div>
+            </section>
+
+            <Footer />
         </div>
     )
 }
 
-// Hook
 function useWindowSize() {
-    // Initialize state with undefined width/height so server and client renders match
-    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-    const [windowSize, setWindowSize] = useState({
-        width: 0,
-        height: 0,
-    });
+    const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
 
     useEffect(() => {
-        // only execute all the code below in client side
-        if (typeof window !== 'undefined') {
-            // Handler to call on window resize
+        if (typeof window === 'undefined') return
+        const handler = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight })
+        handler()
+        window.addEventListener('resize', handler)
+        return () => window.removeEventListener('resize', handler)
+    }, [])
 
-            setWindowSize(
-                {
-                    width: window.innerWidth,
-                    height: window.innerHeight,
-                }
-            );
-            // Add event listener
-            window.addEventListener("resize", (w) => {
-                setWindowSize(
-                    {
-                        width: window.innerWidth,
-                        height: window.innerHeight,
-                    }
-                );
-            });
-
-
-            // Remove event listener on cleanup
-            return;
-            //return () => window.removeEventListener("resize", handleResize);
-        }
-    }, []); // Empty array ensures that effect is only run on mount
-    return windowSize;
+    return windowSize
 }
 
-export default Home
+export default Cv

@@ -2,84 +2,93 @@ import type { NextPage } from 'next'
 import ProjectCard from '../../components/project'
 import { projectsList } from '../../data/projectsList'
 import Footer from '../../components/footer'
-import { useState } from 'react'
-import { Project, ProjectCategory } from '../../models/project'
+import { useMemo, useState } from 'react'
+import { ProjectCategory } from '../../models/project'
 import NavBar from '../../components/navbar'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 import MetaData from '../../components/metadata'
 
-const Home: NextPage = () => {
-  const router = useRouter()
+type Filter = 'all' | ProjectCategory
 
-  const [currentProjectsList, setProjectsList] = useState<Project[]>(projectsList);
+const filters: { key: Filter; label: string; icon?: string }[] = [
+    { key: 'all', label: 'All' },
+    { key: ProjectCategory.flutter, label: 'Flutter', icon: '/icons/flutter.svg' },
+    { key: ProjectCategory.android, label: 'Android', icon: '/icons/android.svg' },
+    { key: ProjectCategory.unity, label: 'Unity', icon: '/icons/unity.png' },
+    { key: ProjectCategory.nextJs, label: 'Next.js', icon: '/icons/nextjs.svg' },
+]
 
-  const openProjectDetails = (id: number) => {
-    router.push({
-      pathname: '/projects/project',
-      query: { "id": id },
-    });
-  }
+const Projects: NextPage = () => {
+    const [filter, setFilter] = useState<Filter>('all')
 
-  function showAll() {
-    setProjectsList(projectsList);
-  }
+    const visible = useMemo(() => {
+        const list = filter === 'all' ? projectsList : projectsList.filter((p) => p.category === filter)
+        return [...list].sort((a, b) => (a.id < b.id ? -1 : 1))
+    }, [filter])
 
-  function showCategory(category: ProjectCategory) {
-    setProjectsList(projectsList.filter((project) => project.category == category));
-  }
+    return (
+        <div className="min-h-screen flex flex-col">
+            <MetaData
+                title="Projects · Alzobair Elkhalifa"
+                description="Projects by Alzobair Elkhalifa — Flutter, Android, Unity, and Next.js work."
+            />
+            <NavBar />
 
-
-  return (
-    <div data-theme="synthwave" className="bg-cover bg-[url('/images/background.jpg')] bg-fixed bg-no-repeat">
-      <MetaData title="Alzobair Elkhalifa portfolio" description="Alzobair Elkhalifa's portfolio projects list page"></MetaData>
-      <div className="backdrop-blur">
-        <NavBar />
-        <div className="px-10 py-5 gap-y-5">
-          <span>Filter:</span>
-          <button className="btn ml-5 mt-2 md:mt-0" onClick={() => showAll()}>
-            <span className="h-6" />
-            <p className="text-xl">All</p>
-          </button>
-
-          <button className="btn ml-5 mt-2 md:mt-0" onClick={() => showCategory(ProjectCategory.flutter)}>
-            <img alt="Flutter" src="icons/flutter.svg" className="w-6 mr-2" />
-            <p className="text-xl">Flutter</p>
-          </button>
-
-          <button className="btn ml-5 mt-2 md:mt-0" onClick={() => showCategory(ProjectCategory.android)}>
-            <img alt="Android" src="/icons/android.svg" className="w-6 mr-2" />
-            <p className="text-xl">Android</p>
-          </button>
-
-          <button className="btn ml-5 mt-2 md:mt-0" onClick={() => showCategory(ProjectCategory.unity)}>
-            <img alt="Unity" src="/icons/unity.png" className="w-6 mr-2" />
-            <p className="text-xl">Unity</p>
-          </button>
-
-          <button className="btn ml-5 mt-2 md:mt-0" onClick={() => showCategory(ProjectCategory.nextJs)}>
-            <img alt="Unity" src="/icons/nextjs.svg" className="w-8 mr-4" />
-            <p className="text-xl">NextJs</p>
-          </button>
-
-        </div>
-        <div className="grid place-items-center items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 px-4 pt-5 pb-20">
-          {
-            currentProjectsList.sort((a, b) => (a.id < b.id ? -1 : 1)).map((item, index) => {
-              return (
-                <div key={index} onClick={(e) => openProjectDetails(item.id)}>
-                  <ProjectCard project={item} />
+            <section className="relative z-10 max-w-7xl mx-auto w-full px-5 md:px-8 lg:px-12 pt-16 md:pt-20 pb-8">
+                <div className="grid md:grid-cols-2 gap-8 md:items-end">
+                    <div>
+                        <span className="section-title">Projects</span>
+                        <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+                            Things I&apos;ve <span className="gradient-text">built</span>.
+                        </h1>
+                    </div>
+                    <p className="text-slate-400 text-lg leading-relaxed md:justify-self-end md:max-w-md">
+                        A selection of published apps, open-source experiments, small games and internal platforms.
+                    </p>
                 </div>
-              )
-            })
-          }
+            </section>
+
+            <section className="relative z-10 max-w-7xl mx-auto w-full px-5 md:px-8 lg:px-12 pt-4 pb-6">
+                <div className="flex flex-wrap gap-2 p-2 surface w-fit">
+                    {filters.map((f) => {
+                        const active = filter === f.key
+                        return (
+                            <button
+                                key={String(f.key)}
+                                onClick={() => setFilter(f.key)}
+                                className={
+                                    'px-4 py-2 rounded-lg text-sm flex items-center gap-2 transition ' +
+                                    (active
+                                        ? 'bg-gradient-to-br from-emerald-400 to-cyan-400 text-slate-950 font-semibold shadow-lg shadow-emerald-500/20'
+                                        : 'text-slate-300 hover:text-white hover:bg-white/5')
+                                }
+                            >
+                                {f.icon && <img src={f.icon} alt="" className="w-4 h-4" />}
+                                {f.label}
+                            </button>
+                        )
+                    })}
+                </div>
+                <p className="mt-4 text-xs uppercase tracking-widest text-slate-500">
+                    {visible.length} {visible.length === 1 ? 'project' : 'projects'}
+                </p>
+            </section>
+
+            <section className="relative z-10 flex-1 max-w-7xl mx-auto w-full px-5 md:px-8 lg:px-12 pb-20">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {visible.map((item, index) => (
+                        <Link key={`${item.id}-${index}`} href={{ pathname: '/projects/project', query: { id: item.id } }}>
+                            <a>
+                                <ProjectCard project={item} />
+                            </a>
+                        </Link>
+                    ))}
+                </div>
+            </section>
+
+            <Footer />
         </div>
-        <Footer />
-      </div>
-    </div>
-  )
+    )
 }
 
-
-
-
-export default Home
+export default Projects

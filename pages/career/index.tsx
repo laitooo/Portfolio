@@ -6,31 +6,38 @@ import { jobsList } from '../../data/jobsList'
 import JopCard from '../../components/job'
 
 const WorkExperience: NextPage = () => {
-    return (
-        <div data-theme="synthwave" className="bg-cover bg-[url('/images/background.jpg')] bg-fixed bg-no-repeat">
-            <MetaData title="Alzobair Elkhalifa portfolio" description="Alzobair Elkhalifa's portfolio projects list page"></MetaData>
-            <div className="backdrop-blur">
-                <NavBar />
-                <div className="text-white text-xl md:text-3xl font-bold px-4 md:pl-20 py-4 md:py-16">My Work experience :</div>
-                <div className="grid place-items-center items-start px-4 md:px-20">
-                    <ol className="relative border-l border-white mb-4 md:mb-20">
-                        <div>
-                            {
-                                jobsList.sort((a, b) => (a.id < b.id ? -1 : 1)).map((item, index) => {
-                                    return (
-                                        <div key={index} className="pl-2 md:pl-4 pt-2 md:pt-10">
-                                            <JopCard job={item} />
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                    </ol>
-                </div>
-            </div>
-            <Footer />
-        </div >
-    )
-};
+    const jobs = [...jobsList].sort((a, b) => (a.id < b.id ? -1 : 1))
 
-export default WorkExperience;
+    return (
+        <div className="min-h-screen flex flex-col">
+            <MetaData
+                title="Career · Alzobair Elkhalifa"
+                description="Work experience — mobile and full-stack roles across fin-tech, health, and startups."
+            />
+            <NavBar />
+
+            <section className="relative z-10 max-w-5xl mx-auto w-full px-5 md:px-8 pt-16 md:pt-20 pb-10">
+                <span className="section-title">Career</span>
+                <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+                    A <span className="gradient-text">timeline</span> of my work.
+                </h1>
+                <p className="mt-5 text-slate-400 max-w-2xl text-lg leading-relaxed">
+                    {jobs.length} roles across mobile and web engineering — from native Android in Java, to leading
+                    Flutter teams, to full-stack development for fin-tech and startup platforms.
+                </p>
+            </section>
+
+            <section className="relative z-10 flex-1 max-w-5xl mx-auto w-full px-5 md:px-8 pb-20">
+                <ol className="relative">
+                    {jobs.map((item) => (
+                        <JopCard key={item.id} job={item} />
+                    ))}
+                </ol>
+            </section>
+
+            <Footer />
+        </div>
+    )
+}
+
+export default WorkExperience
