@@ -5,13 +5,15 @@ import NavBar from '../../components/navbar'
 import { languagesList, toolsList } from '../../data/toolsList'
 import MetaData from '../../components/metadata'
 
-const hobbies = [
+const hobbies: { icon: string; label: string; href?: string; hint?: string }[] = [
     { icon: '✈️', label: 'Travel', href: '/map', hint: 'See the map' },
     { icon: '🗣️', label: 'Learning languages' },
     { icon: '🏊', label: 'Swimming' },
     { icon: '📚', label: 'Reading books' },
     { icon: '🎬', label: 'Anime & TV shows' },
     { icon: '🎮', label: 'League of Legends' },
+    { icon: '🕹️', label: 'PlayStation games' },
+    { icon: '🧩', label: 'Jigsaw puzzles', href: '/jigsaw', hint: 'See my puzzles' },
 ]
 
 const spokenLanguages: { name: string; level: string; flag: string; dots: number }[] = [
