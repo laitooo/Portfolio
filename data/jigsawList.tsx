@@ -24,6 +24,7 @@ const meta: Record<number, PuzzleMeta> = {
     11: { name: 'Puzzle #11', width: 4000, height: 3000 },
     12: { name: 'Puzzle #12', width: 3132, height: 2194 },
     13: { name: 'Puzzle #13', width: 4000, height: 3000 },
+    14: { name: 'Puzzle #14', width: 4000, height: 3000 },
 }
 
 export const jigsawList: Puzzle[] = Object.keys(meta)
