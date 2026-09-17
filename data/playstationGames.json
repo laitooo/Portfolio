@@ -1,0 +1,103 @@
+{
+    "games": [
+        {
+            "rating": 10,
+            "name": "Assassin's Creed Odyssey",
+            "image": "/images/playstation/ac-odyssey.png",
+            "url": "https://en.wikipedia.org/wiki/Assassin%27s_Creed_Odyssey",
+            "genre": "Action-RPG",
+            "year": 2018,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 10,
+            "name": "Grand Theft Auto V",
+            "image": "/images/playstation/gta-v.png",
+            "url": "https://en.wikipedia.org/wiki/Grand_Theft_Auto_V",
+            "genre": "Open World Action",
+            "year": 2013,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 9,
+            "name": "Assassin's Creed Origins",
+            "image": "/images/playstation/ac-origins.png",
+            "url": "https://en.wikipedia.org/wiki/Assassin%27s_Creed_Origins",
+            "genre": "Action-RPG",
+            "year": 2017,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 9,
+            "name": "Days Gone Remastered",
+            "image": "/images/playstation/days-gone-remastered.jpg",
+            "url": "https://en.wikipedia.org/wiki/Days_Gone",
+            "genre": "Open World Action-Adventure",
+            "year": 2025,
+            "platform": "PS5"
+        },
+        {
+            "rating": 8,
+            "name": "Far Cry 6",
+            "image": "/images/playstation/far-cry-6.jpg",
+            "url": "https://en.wikipedia.org/wiki/Far_Cry_6",
+            "genre": "Open World FPS",
+            "year": 2021,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 8,
+            "name": "Uncharted 4: A Thief's End",
+            "image": "/images/playstation/uncharted-4.jpg",
+            "url": "https://en.wikipedia.org/wiki/Uncharted_4:_A_Thief%27s_End",
+            "genre": "Action-Adventure",
+            "year": 2016,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 8,
+            "name": "Uncharted: The Lost Legacy",
+            "image": "/images/playstation/uncharted-lost-legacy.jpg",
+            "url": "https://en.wikipedia.org/wiki/Uncharted:_The_Lost_Legacy",
+            "genre": "Action-Adventure",
+            "year": 2017,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 7,
+            "name": "Uncharted 3: Drake's Deception",
+            "image": "/images/playstation/uncharted-3.jpg",
+            "url": "https://en.wikipedia.org/wiki/Uncharted_3:_Drake%27s_Deception",
+            "genre": "Action-Adventure",
+            "year": 2011,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 5,
+            "name": "Mafia: Definitive Edition",
+            "image": "/images/playstation/mafia-definitive-edition.jpg",
+            "url": "https://en.wikipedia.org/wiki/Mafia:_Definitive_Edition",
+            "genre": "Action-Adventure",
+            "year": 2020,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 6,
+            "name": "Uncharted: Drake's Fortune",
+            "image": "/images/playstation/uncharted-1.jpg",
+            "url": "https://en.wikipedia.org/wiki/Uncharted:_Drake%27s_Fortune",
+            "genre": "Action-Adventure",
+            "year": 2007,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 7,
+            "name": "Uncharted 2: Among Thieves",
+            "image": "/images/playstation/uncharted-2.jpg",
+            "url": "https://en.wikipedia.org/wiki/Uncharted_2:_Among_Thieves",
+            "genre": "Action-Adventure",
+            "year": 2009,
+            "platform": "PlayStation"
+        }
+    ]
+}

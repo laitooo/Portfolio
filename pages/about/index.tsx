@@ -12,7 +12,7 @@ const hobbies: { icon: string; label: string; href?: string; hint?: string }[] =
     { icon: '📚', label: 'Reading books' },
     { icon: '🎬', label: 'Anime & TV shows' },
     { icon: '🎮', label: 'League of Legends' },
-    { icon: '🕹️', label: 'PlayStation games' },
+    { icon: '🕹️', label: 'PlayStation games', href: '/playstation', hint: 'See my ratings' },
     { icon: '🧩', label: 'Jigsaw puzzles', href: '/jigsaw', hint: 'See my puzzles' },
 ]
 
