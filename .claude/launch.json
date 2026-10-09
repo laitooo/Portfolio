@@ -1,0 +1,11 @@
+{
+    "version": "0.0.1",
+    "configurations": [
+        {
+            "name": "portfolio-dev",
+            "runtimeExecutable": "/bin/sh",
+            "runtimeArgs": ["-c", "cd /Users/laitooo/Desktop/Projects/nextjs/Portfolio && exec npm run dev"],
+            "port": 3000
+        }
+    ]
+}
