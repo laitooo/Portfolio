@@ -28,7 +28,7 @@
             "platform": "PlayStation"
         },
         {
-            "rating": 9,
+            "rating": 10,
             "name": "Days Gone Remastered",
             "image": "/images/playstation/days-gone-remastered.jpg",
             "url": "https://en.wikipedia.org/wiki/Days_Gone",
@@ -46,7 +46,7 @@
             "platform": "PlayStation"
         },
         {
-            "rating": 8,
+            "rating": 9,
             "name": "Uncharted 4: A Thief's End",
             "image": "/images/playstation/uncharted-4.jpg",
             "url": "https://en.wikipedia.org/wiki/Uncharted_4:_A_Thief%27s_End",
@@ -80,6 +80,33 @@
             "genre": "Action-Adventure",
             "year": 2020,
             "platform": "PlayStation"
+        },
+        {
+            "rating": 4,
+            "name": "Assassin's Creed III Remastered",
+            "image": "/images/playstation/ac-3-remastered.jpg",
+            "url": "https://en.wikipedia.org/wiki/Assassin%27s_Creed_III",
+            "genre": "Action-Adventure",
+            "year": 2019,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 3,
+            "name": "Assassin's Creed III: Liberation Remastered",
+            "image": "/images/playstation/ac-3-liberation-remastered.jpg",
+            "url": "https://en.wikipedia.org/wiki/Assassin%27s_Creed_III:_Liberation",
+            "genre": "Action-Adventure",
+            "year": 2019,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 6,
+            "name": "The Seven Deadly Sins: Origin",
+            "image": "/images/playstation/seven-deadly-sins-origin.jpg",
+            "url": "https://www.playstation.com/en-us/games/the-seven-deadly-sins-origin/",
+            "genre": "Action-RPG",
+            "year": 2026,
+            "platform": "PS5"
         },
         {
             "rating": 6,
