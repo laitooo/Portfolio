@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import Footer from '../components/footer'
 import NavBar from '../components/navbar'
@@ -19,7 +20,7 @@ const stack = [
 const stats = [
     { value: '6+', label: 'Years building' },
     { value: '15+', label: 'Projects' },
-    { value: '1.6M+', label: 'Downloads on Google Play' },
+    { value: '1.9M+', label: 'Downloads on Google Play' },
 ]
 
 const Home: NextPage = () => {
@@ -58,7 +59,7 @@ const Home: NextPage = () => {
                         </h1>
 
                         <p className="mt-8 max-w-xl text-slate-300 text-lg leading-relaxed">
-                            6+ years shipping production apps — from a 1.6M-download reader on Google Play,
+                            6+ years shipping production apps — from a 1.9M-download reader on Google Play,
                             to fin-tech and travel platforms with <span className="text-white">Flutter</span> and
                             <span className="text-white"> Next.js</span>. Currently based in Dubai.
                         </p>
@@ -94,7 +95,15 @@ const Home: NextPage = () => {
                             <div className="absolute -inset-4 bg-gradient-to-br from-emerald-400/20 via-cyan-400/10 to-transparent rounded-3xl blur-2xl" />
                             <div className="relative surface p-6">
                                 <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-500/20 to-cyan-500/10 relative">
-                                    <img src="/images/profile.png" alt="Alzobair Elkhalifa" className="w-full h-full object-cover animate-float" />
+                                    <Image
+                                        src="/images/profile.png"
+                                        alt="Alzobair Elkhalifa"
+                                        layout="fill"
+                                        objectFit="cover"
+                                        sizes="(max-width: 1024px) 80vw, 420px"
+                                        priority
+                                        className="animate-float"
+                                    />
                                     <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl" />
                                 </div>
                                 <div className="mt-5 flex items-center justify-between">
@@ -141,7 +150,7 @@ const Home: NextPage = () => {
                     {stack.map((s) => (
                         <div key={s.name} className="surface surface-hover p-6">
                             <div className="w-12 h-12 rounded-xl bg-white/[0.03] border border-white/5 grid place-items-center">
-                                <img src={s.icon} alt={s.name} className="w-8 h-8" />
+                                <Image src={s.icon} alt={s.name} width={32} height={32} className="w-8 h-8" />
                             </div>
                             <div className="mt-5 flex items-center gap-2">
                                 <h3 className="text-white text-lg font-semibold">{s.name}</h3>
@@ -168,7 +177,7 @@ const Home: NextPage = () => {
                         <div className="flex gap-12 animate-marquee whitespace-nowrap">
                             {[...marqueeLangs, ...marqueeLangs].map((t, i) => (
                                 <div key={i} className="flex items-center gap-3 text-slate-300 shrink-0">
-                                    <img src={t.icon} alt={t.name} className="w-6 h-6 opacity-80" />
+                                    <Image src={t.icon} alt={t.name} width={24} height={24} className="w-6 h-6 opacity-80" />
                                     <span className="text-sm uppercase tracking-widest">{t.name}</span>
                                 </div>
                             ))}
@@ -193,7 +202,7 @@ const Home: NextPage = () => {
                 </div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {featured.map((p) => (
-                        <Link key={p.id} href={{ pathname: '/projects/project', query: { id: p.id } }}>
+                        <Link key={p.id} href={`/projects/${p.id}`}>
                             <a>
                                 <ProjectCard project={p} />
                             </a>

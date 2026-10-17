@@ -2,27 +2,22 @@
   "name": "portfolio",
   "version": "0.2.0",
   "private": true,
-  "homepage": "https://laitooo.github.io",
+  "homepage": "https://alzobair.dev",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "replaceFilePaths": "node replacer.js",
-    "predeploy": "next build && next export -o build && npm run replaceFilePaths",
-    "deploy": "gh-pages -d build"
+    "lint": "next lint"
   },
   "dependencies": {
     "@next/swc-wasm-nodejs": "^16.1.1",
-    "daisyui": "^2.19.0",
     "flowbite": "^1.5.2",
     "flowbite-react": "^0.1.9",
     "mapbox-gl": "^3.9.2",
     "next": "12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-pdf": "^5.7.2",
-    "replace-in-file": "^6.3.5"
+    "react-pdf": "^5.7.2"
   },
   "devDependencies": {
     "@swc/cli": "^0.7.10",
@@ -34,7 +29,6 @@
     "autoprefixer": "^10.4.7",
     "eslint": "8.20.0",
     "eslint-config-next": "12.2.2",
-    "gh-pages": "^4.0.0",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.6",
     "typescript": "4.7.4"

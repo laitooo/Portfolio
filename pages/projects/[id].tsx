@@ -1,12 +1,13 @@
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
-import Footer from '../../../components/footer'
-import NavBar from '../../../components/navbar'
-import { projectsList } from '../../../data/projectsList'
+import Footer from '../../components/footer'
+import NavBar from '../../components/navbar'
+import { projectsList } from '../../data/projectsList'
 import { Carousel } from 'flowbite-react'
-import MetaData from '../../../components/metadata'
-import { getButton } from '../../../components/project'
-import { Project, ProjectCategory } from '../../../models/project'
-import ErrorPage from '../../../components/errorPage'
+import MetaData from '../../components/metadata'
+import { getButton } from '../../components/project'
+import { Project, ProjectCategory } from '../../models/project'
 
 const categoryLabel = (c: ProjectCategory) => {
     switch (+c) {
@@ -18,25 +19,15 @@ const categoryLabel = (c: ProjectCategory) => {
     }
 }
 
-const ProjectDetails = () => {
-    let project: Project | undefined
-    if (typeof window !== 'undefined') {
-        const url = new URL(window.location.href)
-        if (url.searchParams.has('id')) {
-            const id = Number(url.searchParams.get('id'))
-            project = projectsList.find((e) => e.id === id)
-        }
-    }
+type Props = { project: Project }
 
-    if (project === undefined) {
-        return <ErrorPage errorMsg="Couldn't find the project with the specified ID." />
-    }
-
+const ProjectDetails: NextPage<Props> = ({ project }) => {
     return (
         <div className="min-h-screen flex flex-col">
             <MetaData
                 title={`${project.name} · Alzobair Elkhalifa`}
                 description={project.description}
+                path={`/projects/${project.id}`}
             />
             <NavBar />
 
@@ -67,11 +58,13 @@ const ProjectDetails = () => {
                     <div className="h-[26rem] md:h-[36rem] rounded-xl overflow-hidden bg-black/40">
                         <Carousel slideInterval={5000}>
                             {project.screenshots.map((value, index) => (
-                                <div key={index} className="w-full h-full grid place-items-center bg-slate-950">
-                                    <img
+                                <div key={index} className="relative w-full h-full grid place-items-center bg-slate-950">
+                                    <Image
                                         alt="screenshot"
                                         src={value}
-                                        className="max-h-[36rem] object-contain"
+                                        layout="fill"
+                                        objectFit="contain"
+                                        sizes="(max-width: 1024px) 100vw, 900px"
                                     />
                                 </div>
                             ))}
@@ -83,6 +76,24 @@ const ProjectDetails = () => {
             <Footer />
         </div>
     )
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    return {
+        paths: projectsList.map((p) => ({ params: { id: String(p.id) } })),
+        fallback: false,
+    }
+}
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+    const id = Number(params?.id)
+    const project = projectsList.find((p) => p.id === id)
+
+    if (!project) {
+        return { notFound: true }
+    }
+
+    return { props: { project } }
 }
 
 export default ProjectDetails

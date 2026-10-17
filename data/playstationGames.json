@@ -20,6 +20,15 @@
         },
         {
             "rating": 9,
+            "name": "Uncharted 4: A Thief's End",
+            "image": "/images/playstation/uncharted-4.jpg",
+            "url": "https://en.wikipedia.org/wiki/Uncharted_4:_A_Thief%27s_End",
+            "genre": "Action-Adventure",
+            "year": 2016,
+            "platform": "PlayStation"
+        },
+        {
+            "rating": 9,
             "name": "Assassin's Creed Origins",
             "image": "/images/playstation/ac-origins.png",
             "url": "https://en.wikipedia.org/wiki/Assassin%27s_Creed_Origins",
@@ -43,15 +52,6 @@
             "url": "https://en.wikipedia.org/wiki/Far_Cry_6",
             "genre": "Open World FPS",
             "year": 2021,
-            "platform": "PlayStation"
-        },
-        {
-            "rating": 9,
-            "name": "Uncharted 4: A Thief's End",
-            "image": "/images/playstation/uncharted-4.jpg",
-            "url": "https://en.wikipedia.org/wiki/Uncharted_4:_A_Thief%27s_End",
-            "genre": "Action-Adventure",
-            "year": 2016,
             "platform": "PlayStation"
         },
         {

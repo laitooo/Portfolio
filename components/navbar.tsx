@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -42,9 +43,11 @@ const NavBar: NextPage = () => {
                 <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-12 py-4 flex items-center justify-between">
                     <Link href="/">
                         <a className="group flex items-center gap-2">
-                            <img
+                            <Image
                                 src="/images/logo.png"
                                 alt=""
+                                width={36}
+                                height={36}
                                 className="w-9 h-9 rounded-lg shadow-lg shadow-emerald-500/20"
                             />
                             <span className="text-lg md:text-xl font-semibold tracking-tight text-white">
