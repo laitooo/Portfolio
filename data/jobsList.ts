@@ -6,7 +6,7 @@ export const jobsList: Jop[] = [
         title: "Front-end Developer",
         details: "Neo Pass" +
         "\n• Joined the development of Neo One, a leading fin-tech mobile startup in the UAE. Offering open banking, virtual banking " +
-        "andcrypto services, built using Flutter." +
+        "and crypto services, built using Flutter." +
         "\n• Participated in the development and design of Neo-Pass a website for booking flights, travel offers and hotels deals, " +
         "offering high discounted flights with the possibility of buying using crypto payments.",
         startDate: new Date(2024, 4, 1),
@@ -19,12 +19,12 @@ export const jobsList: Jop[] = [
         id: 2,
         title: "Full stack Software Developer",
         details: "VentureX: A system that provides fund for local startups." +
-        "\n• As the lead developer responsible for enhancing our internal company systems, I used ReactJS" +
+        "\n• As the lead developer responsible for enhancing our internal company systems, I used ReactJS " +
         "and NestJS, two powerful technologies for developing web apps." +
-        "\n• Served as a bridge between various departments within the company, actively engaging with them" +
-        "to understand their unique." +
-        "\n• Developed a platform for financial requests, this platform helped fund startups with an amount" +
-        "that’s more than 110,000 euro.",
+        "\n• Served as a bridge between various departments within the company, actively engaging with them " +
+        "to understand their unique needs." +
+        "\n• Developed a platform for financial requests, this platform helped fund startups with an amount " +
+        "that’s more than 110,000 euros.",
         startDate: new Date(2023, 2, 1),
         endDate: new Date(2024, 7, 31),
         toolsUsed: "ReactJs and NestJs (TypeScript)",
@@ -39,7 +39,7 @@ export const jobsList: Jop[] = [
         "\n• I spearheaded the development of Foodo, a mobile application designed to curb food wastage by " +
         "enabling restaurants to sell their surplus food directly to customers." +
         "\n• Had the responsibility of project management, task allocation, and the critical function of " +
-        " conducting code reviews. which ensured code quality and consistency." +
+        "conducting code reviews, which ensured code quality and consistency." +
         "\n• Mentored and guided a team of four junior developers through the intricacies of our source code's " +
         "software architecture and imparting best practices in Flutter development.",
         startDate: new Date(2022, 8, 1),
@@ -67,7 +67,7 @@ export const jobsList: Jop[] = [
     {
         id: 5,
         title: "Flutter developer",
-        details: "Doctorbase: Healthcare mobile app that lets patient have Virtual visits with, developed using Flutter " +
+        details: "Doctorbase: Healthcare mobile app that lets patients have virtual visits with doctors, developed using Flutter " +
         "(Dart) and Firebase. " +
         "\n• Refined the app's user interface, ensuring it met the highest standards of design precision and " +
         "visual appeal, we achieved a pixel-perfect design, enhancing the overall user experience. " +

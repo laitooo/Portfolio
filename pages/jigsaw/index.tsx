@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Footer from '../../components/footer'
@@ -59,11 +60,13 @@ const Jigsaw: NextPage = () => {
                             className="group relative text-left rounded-2xl overflow-hidden border border-white/5 bg-white/[0.02] shadow-[0_1px_0_rgba(255,255,255,0.03)_inset,0_20px_40px_-24px_rgba(0,0,0,0.6)] hover:border-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 transition"
                         >
                             <div className="relative w-full aspect-[4/3] bg-white/[0.03] overflow-hidden">
-                                <img
+                                <Image
                                     src={p.image}
                                     alt={p.name}
-                                    loading="lazy"
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                    className="transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                                 />
 
                                 <span

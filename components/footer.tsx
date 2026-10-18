@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Image from 'next/image'
 import { email, facebook, github, linkedin, telegram, twitter, youtube } from '../data/socialMedia'
 import { featureFlags } from '../data/featureFlags'
 
@@ -87,7 +88,7 @@ const Footer: NextPage = () => {
                     <div className="grid gap-8 md:grid-cols-3 md:items-start">
                         <div>
                             <div className="flex items-center gap-2">
-                                <img src="/images/logo.png" alt="" className="w-9 h-9 rounded-lg" />
+                                <Image src="/images/logo.png" alt="" width={36} height={36} className="w-9 h-9 rounded-lg" />
                                 <span className="text-white font-semibold">alzobair<span className="text-emerald-400">.</span>dev</span>
                             </div>
                             <p className="mt-4 text-sm text-slate-400 max-w-sm leading-relaxed">

@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Image from 'next/image'
 import ProjectCard from '../../components/project'
 import { projectsList } from '../../data/projectsList'
 import Footer from '../../components/footer'
@@ -63,7 +64,7 @@ const Projects: NextPage = () => {
                                         : 'text-slate-300 hover:text-white hover:bg-white/5')
                                 }
                             >
-                                {f.icon && <img src={f.icon} alt="" className="w-4 h-4" />}
+                                {f.icon && <Image src={f.icon} alt="" width={16} height={16} className="w-4 h-4" />}
                                 {f.label}
                             </button>
                         )
@@ -77,7 +78,7 @@ const Projects: NextPage = () => {
             <section className="relative z-10 flex-1 max-w-7xl mx-auto w-full px-5 md:px-8 lg:px-12 pb-20">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {visible.map((item, index) => (
-                        <Link key={`${item.id}-${index}`} href={{ pathname: '/projects/project', query: { id: item.id } }}>
+                        <Link key={`${item.id}-${index}`} href={`/projects/${item.id}`}>
                             <a>
                                 <ProjectCard project={item} />
                             </a>

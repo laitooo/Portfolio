@@ -1,0 +1,22 @@
+{
+    "movies": [
+        {
+            "rating": 10,
+            "name": "(500) Days of Summer",
+            "image": "/images/movies/500-days-of-summer.jpg",
+            "url": "https://www.youtube.com/watch?v=PsD0NpFSADM",
+            "genre": "Romance / Comedy-Drama",
+            "year": 2009,
+            "director": "Marc Webb"
+        },
+        {
+            "rating": 8,
+            "name": "Verity",
+            "image": "/images/movies/verity.jpg",
+            "url": "https://www.youtube.com/watch?v=c8QY7oHGJww",
+            "genre": "Psychological Thriller",
+            "year": 2026,
+            "director": "Michael Showalter"
+        }
+    ]
+}

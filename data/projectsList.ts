@@ -4,7 +4,7 @@ export const projectsList: Project[] = [
   {
     id: 1,
     name: "Manga Online",
-    description: "It's an Android app for reading Asian manga. A simple yet effective app that provides a great reading experience Simplicity and speed in downloading chapters. 500k+ downloads on Google play with a 4.2 rate.",
+    description: "It's an Android app for reading Asian manga. A simple yet effective app that provides a great reading experience — simplicity and speed in downloading chapters. 500k+ downloads on Google Play with a 4.2 rating.",
     imagePath: "/screenshots/covers/manga.jpg",
     category: ProjectCategory.flutter,
     url: "https://play.google.com/store/apps/details?id=zxc.laitooo.manga.online",
@@ -15,7 +15,7 @@ export const projectsList: Project[] = [
   {
     id: 11,
     name: "Werewolf Online",
-    description: "A multiplayer startegy game for android, that has two teams (werewolfs and villagers) competing to kill each other , the team that all his members dies first lose the game. It contains feature like firends chats, groups and voice chat.",
+    description: "A multiplayer strategy game for Android with two teams (werewolves and villagers) competing to eliminate each other — the first team to lose all its members loses the game. It includes features like friend chats, groups and voice chat.",
     imagePath: "/screenshots/covers/werewolf.jpg",
     category: ProjectCategory.android,
     url: "https://github.com/laitooo/Werewolf-Online",
@@ -75,7 +75,7 @@ export const projectsList: Project[] = [
     screenshots: ["/screenshots/space/1.JPG", "/screenshots/space/2.JPG", "/screenshots/space/3.JPG", "/screenshots/space/4.JPG",],
   },
   {
-    id: 7,
+    id: 17,
     name: "Simsimy Launcher",
     description: "A home launcher for kids tablets used to set limits and control the child's action. developed using Android with Java.",
     imagePath: "/screenshots/covers/simsimy.jpg",

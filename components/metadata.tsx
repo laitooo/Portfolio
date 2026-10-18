@@ -1,9 +1,14 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 const SITE_URL = 'https://alzobair.dev'
 const OG_IMAGE = `${SITE_URL}/images/logo.png`
 
-const MetaData = (probs: { title: string; description: string }) => {
+const MetaData = (probs: { title: string; description: string; path?: string }) => {
+    const router = useRouter()
+    const path = probs.path ?? router.asPath.split('#')[0]
+    const pageUrl = path === '/' ? SITE_URL : `${SITE_URL}${path}`
+
     return (
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,10 +19,10 @@ const MetaData = (probs: { title: string; description: string }) => {
             <meta name="description" content={probs.description} />
             <meta name="theme-color" content="#05070d" />
             <meta name="author" content="Alzobair Elkhalifa" />
-            <link rel="canonical" href={SITE_URL} />
+            <link rel="canonical" href={pageUrl} />
             <meta property="og:type" content="website" />
             <meta property="og:site_name" content="alzobair.dev" />
-            <meta property="og:url" content={SITE_URL} />
+            <meta property="og:url" content={pageUrl} />
             <meta property="og:title" content={probs.title} />
             <meta property="og:description" content={probs.description} />
             <meta property="og:image" content={OG_IMAGE} />

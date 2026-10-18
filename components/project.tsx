@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Project, ProjectCategory, UrlType } from '../models/project'
 
 const categoryLabel = (c: ProjectCategory) => {
@@ -62,15 +63,18 @@ const ProjectCard = (probs: { project: Project }) => {
     return (
         <div className="group relative surface surface-hover overflow-hidden cursor-pointer h-full flex flex-col">
             <div className="relative aspect-[16/10] overflow-hidden">
-                <img
+                <Image
                     src={p.imagePath}
                     alt={p.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    layout="fill"
+                    objectFit="cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
                     <span className="chip chip-accent backdrop-blur">
-                        <img src={categoryIcon(p.category)} alt="" className="w-3.5 h-3.5" />
+                        <Image src={categoryIcon(p.category)} alt="" width={14} height={14} className="w-3.5 h-3.5" />
                         {categoryLabel(p.category)}
                     </span>
                     <UrlTag type={p.urlType} />

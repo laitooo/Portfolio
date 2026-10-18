@@ -5,7 +5,9 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import React, { useState, useEffect } from 'react'
 import MetaData from '../../components/metadata'
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
+// Self-hosted worker (copied from node_modules/pdfjs-dist/build/pdf.worker.min.js)
+// so the CV page doesn't depend on a third-party CDN being up.
+pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js'
 
 const Cv: NextPage = () => {
     const [numPages, setNumPages] = useState(0)
