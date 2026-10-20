@@ -38,6 +38,15 @@
         },
         {
             "rating": 9,
+            "name": "From the Studio",
+            "image": "/images/music/from-the-studio.png",
+            "url": "https://open.spotify.com/album/7h5YXGDPG5nC2yNfRe5lLp",
+            "artist": "Cairokee",
+            "genre": "Arabic Rock / Alternative",
+            "year": 2020
+        },
+        {
+            "rating": 9,
             "name": "The Rise and Fall of a Midwest Princess",
             "image": "/images/music/rise-and-fall-of-a-midwest-princess.png",
             "url": "https://open.spotify.com/album/0EiI8ylL0FmWWpgHVTsZjZ",
