@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import { email, facebook, github, linkedin, telegram, twitter, youtube } from '../data/socialMedia'
 import { featureFlags } from '../data/featureFlags'
+import { trackEvent } from '../lib/analytics'
 
 type Social = {
     label: string
@@ -112,6 +113,7 @@ const Footer: NextPage = () => {
                                         aria-label={s.label}
                                         target="_blank"
                                         rel="noreferrer"
+                                        onClick={() => trackEvent('social_click', { network: s.label })}
                                         className="w-10 h-10 grid place-items-center rounded-lg text-slate-300 border border-white/10 bg-white/[0.02] hover:text-emerald-300 hover:border-emerald-400/40 hover:bg-emerald-400/5 transition"
                                     >
                                         <span className="w-4 h-4 block">{s.svg}</span>

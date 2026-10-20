@@ -4,6 +4,7 @@ import NavBar from '../../components/navbar'
 import { Document, Page, pdfjs } from 'react-pdf'
 import React, { useState, useEffect } from 'react'
 import MetaData from '../../components/metadata'
+import { trackEvent } from '../../lib/analytics'
 
 // Self-hosted worker (copied from node_modules/pdfjs-dist/build/pdf.worker.min.js)
 // so the CV page doesn't depend on a third-party CDN being up.
@@ -37,6 +38,7 @@ const Cv: NextPage = () => {
                         target="_blank"
                         rel="noreferrer"
                         download
+                        onClick={() => trackEvent('download_cv', { from: 'cv_top' })}
                         className="btn-primary-accent"
                     >
                         Download PDF
@@ -77,6 +79,7 @@ const Cv: NextPage = () => {
                         target="_blank"
                         rel="noreferrer"
                         download
+                        onClick={() => trackEvent('download_cv', { from: 'cv_bottom' })}
                         className="btn-outline-soft"
                     >
                         Download PDF

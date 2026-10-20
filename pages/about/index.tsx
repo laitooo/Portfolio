@@ -5,25 +5,96 @@ import Footer from '../../components/footer'
 import NavBar from '../../components/navbar'
 import { languagesList, toolsList } from '../../data/toolsList'
 import MetaData from '../../components/metadata'
+import { trackEvent } from '../../lib/analytics'
 
-const hobbies: { icon: string; label: string; href?: string; hint?: string }[] = [
-    { icon: '✈️', label: 'Travelling',           href: '/map',         hint: 'See the map' },
-    { icon: '🎮', label: 'Playing video games',  href: '/playstation', hint: 'See my tier list' },
-    { icon: '🏊', label: 'Swimming' },
-    { icon: '🎵', label: 'Listening to music',   href: '/music',       hint: 'See my albums' },
-    { icon: '🧩', label: 'Jigsaw puzzles',       href: '/jigsaw',      hint: 'See my puzzles' },
-    { icon: '📚', label: 'Reading books' },
-    { icon: '🎬', label: 'Watching movies',      href: '/movies',      hint: 'See my picks' },
-    { icon: '🗣️', label: 'Learning languages' },
-    { icon: '📺', label: 'Watching TV shows' },
-    { icon: '🏖️', label: 'Relaxing on the beach' },
+const iconProps = {
+    width: 22,
+    height: 22,
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.8,
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
+    'aria-hidden': true,
+}
+
+const HobbyIcons = {
+    travel: (
+        <svg {...iconProps}><path d="M12 7l2 5-2 5-2-5z" /><circle cx="12" cy="12" r="9" /></svg>
+    ),
+    gaming: (
+        <svg {...iconProps}>
+            <rect x="2" y="8" width="20" height="9" rx="4.5" />
+            <path d="M7 11v3M5.5 12.5h3" />
+            <circle cx="15.5" cy="11.5" r="1" fill="currentColor" />
+            <circle cx="18" cy="14" r="1" fill="currentColor" />
+        </svg>
+    ),
+    swimming: (
+        <svg {...iconProps}>
+            <path d="M9 10l2.5-2.5 2 2 3-3" />
+            <circle cx="17" cy="6" r="1.6" fill="currentColor" stroke="none" />
+            <path d="M2 15.5c1.5-1.3 3-1.3 4.5 0s3 1.3 4.5 0 3-1.3 4.5 0 3 1.3 4.5 0" />
+            <path d="M2 19c1.5-1.3 3-1.3 4.5 0s3 1.3 4.5 0 3-1.3 4.5 0 3 1.3 4.5 0" />
+        </svg>
+    ),
+    music: (
+        <svg {...iconProps}><path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" /></svg>
+    ),
+    jigsaw: (
+        <svg {...iconProps}>
+            <rect x="4" y="4" width="7" height="7" rx="1.5" />
+            <rect x="13" y="4" width="7" height="7" rx="1.5" />
+            <rect x="4" y="13" width="7" height="7" rx="1.5" />
+            <rect x="13" y="13" width="7" height="7" rx="1.5" />
+        </svg>
+    ),
+    books: (
+        <svg {...iconProps}>
+            <path d="M4 5.5A2 2 0 0 1 6 4h5.5v15H6a2 2 0 0 1-2-2z" />
+            <path d="M20 5.5A2 2 0 0 0 18 4h-5.5v15H18a2 2 0 0 0 2-2z" />
+        </svg>
+    ),
+    movies: (
+        <svg {...iconProps}>
+            <path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" />
+            <path d="M3 9l1.5-4h3L6 9zM9 9l1.5-4h3L12 9zM15 9l1.5-4h3L18 9z" />
+        </svg>
+    ),
+    languages: (
+        <svg {...iconProps}><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a13 13 0 0 1 0 18" /><path d="M12 3a13 13 0 0 0 0 18" /></svg>
+    ),
+    tv: (
+        <svg {...iconProps}><rect x="3" y="6" width="18" height="12" rx="2" /><path d="M8 21h8M12 18v3" /></svg>
+    ),
+    beach: (
+        <svg {...iconProps}>
+            <circle cx="12" cy="9" r="4" />
+            <path d="M12 2v2M12 14v2M5 9h2M17 9h2M6.5 3.5l1.4 1.4M16.1 4.9l1.4-1.4" />
+            <path d="M2 19h20" />
+        </svg>
+    ),
+}
+
+const hobbies: { icon: JSX.Element; label: string; href?: string; hint?: string }[] = [
+    { icon: HobbyIcons.travel,    label: 'Travelling',           href: '/map',         hint: 'See the map' },
+    { icon: HobbyIcons.gaming,    label: 'Playing video games',  href: '/playstation', hint: 'See my tier list' },
+    { icon: HobbyIcons.swimming,  label: 'Swimming' },
+    { icon: HobbyIcons.music,     label: 'Listening to music',   href: '/music',       hint: 'See my albums' },
+    { icon: HobbyIcons.jigsaw,    label: 'Jigsaw puzzles',       href: '/jigsaw',      hint: 'See my puzzles' },
+    { icon: HobbyIcons.books,     label: 'Reading books' },
+    { icon: HobbyIcons.movies,    label: 'Watching movies',      href: '/movies',      hint: 'See my picks' },
+    { icon: HobbyIcons.languages, label: 'Learning languages' },
+    { icon: HobbyIcons.tv,        label: 'Watching TV shows' },
+    { icon: HobbyIcons.beach,     label: 'Relaxing on the beach' },
 ]
 
-const spokenLanguages: { name: string; level: string; flag: string; dots: number }[] = [
-    { name: 'Arabic',  level: 'Native',    flag: '🇸🇩', dots: 5 },
-    { name: 'English', level: 'Advanced',  flag: '🇬🇧', dots: 4 },
-    { name: 'French',  level: 'Basics',    flag: '🇫🇷', dots: 2 },
-    { name: 'Spanish', level: 'Beginner',  flag: '🇪🇸', dots: 1 },
+const spokenLanguages: { name: string; level: string; code: string; dots: number }[] = [
+    { name: 'Arabic',  level: 'Native',    code: 'AR', dots: 5 },
+    { name: 'English', level: 'Advanced',  code: 'EN', dots: 4 },
+    { name: 'French',  level: 'Basics',    code: 'FR', dots: 2 },
+    { name: 'Spanish', level: 'Beginner',  code: 'ES', dots: 1 },
 ]
 
 const quickFacts: [string, string][] = [
@@ -73,7 +144,13 @@ const About: NextPage = () => {
                         </div>
 
                         <div className="mt-8 flex flex-wrap gap-3">
-                            <a href="/files/AlzobairElkhalifaCv.pdf" target="_blank" rel="noreferrer" className="btn-primary-accent">
+                            <a
+                                href="/files/AlzobairElkhalifaCv.pdf"
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={() => trackEvent('download_cv', { from: 'about' })}
+                                className="btn-primary-accent"
+                            >
                                 Download CV
                             </a>
                             <Link href="/career"><a className="btn-outline-soft">See career</a></Link>
@@ -113,7 +190,7 @@ const About: NextPage = () => {
                         const inner = (
                             <div className="group h-full flex flex-col justify-between gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-emerald-400/40 hover:bg-emerald-400/[0.04] transition">
                                 <div className="flex items-start justify-between gap-2">
-                                    <span className="text-3xl leading-none">{h.icon}</span>
+                                    <span className="text-slate-400 group-hover:text-emerald-300 transition">{h.icon}</span>
                                     <span className="text-xs font-semibold tabular-nums text-slate-600 group-hover:text-emerald-300 transition">
                                         {String(i + 1).padStart(2, '0')}
                                     </span>
@@ -160,7 +237,9 @@ const About: NextPage = () => {
                     {spokenLanguages.map((l) => (
                         <div key={l.name} className="surface surface-hover p-6">
                             <div className="flex items-center gap-3">
-                                <span className="text-3xl leading-none">{l.flag}</span>
+                                <span className="w-10 h-10 shrink-0 grid place-items-center rounded-lg border border-white/10 bg-white/[0.02] text-xs font-bold tracking-wide text-emerald-300">
+                                    {l.code}
+                                </span>
                                 <div className="min-w-0">
                                     <p className="text-white font-semibold">{l.name}</p>
                                     <p className="text-xs text-slate-400">{l.level}</p>

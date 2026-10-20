@@ -49,7 +49,7 @@ const ProjectDetails: NextPage<Props> = ({ project }) => {
                     {project.description}
                 </p>
                 <div className="mt-6">
-                    {getButton(project.urlType, project.url)}
+                    {getButton(project.urlType, project.url, project.name)}
                 </div>
             </section>
 

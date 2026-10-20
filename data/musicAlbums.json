@@ -20,6 +20,15 @@
         },
         {
             "rating": 10,
+            "name": "evermore",
+            "image": "/images/music/evermore.png",
+            "url": "https://open.spotify.com/album/2Xoteh7uEpea4TohMxjtaq",
+            "artist": "Taylor Swift",
+            "genre": "Alternative / Indie Folk",
+            "year": 2020
+        },
+        {
+            "rating": 10,
             "name": "HIT ME HARD AND SOFT",
             "image": "/images/music/hit-me-hard-and-soft.png",
             "url": "https://open.spotify.com/album/7aJuG4TFXa2hmE4z1yxc3n",
@@ -35,6 +44,24 @@
             "artist": "Chappell Roan",
             "genre": "Synth-Pop / Dance-Pop",
             "year": 2023
+        },
+        {
+            "rating": 8,
+            "name": "The Life of a Showgirl",
+            "image": "/images/music/the-life-of-a-showgirl.png",
+            "url": "https://open.spotify.com/album/4a6NzYL1YHRUgx9e3YZI6I",
+            "artist": "Taylor Swift",
+            "genre": "Pop",
+            "year": 2025
+        },
+        {
+            "rating": 3,
+            "name": "Parachutes",
+            "image": "/images/music/parachutes.png",
+            "url": "https://open.spotify.com/album/6ZG5lRT77aJ3btmArcykra",
+            "artist": "Coldplay",
+            "genre": "Alternative Rock",
+            "year": 2000
         }
     ]
 }

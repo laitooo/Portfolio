@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Project, ProjectCategory, UrlType } from '../models/project'
+import { trackEvent } from '../lib/analytics'
 
 const categoryLabel = (c: ProjectCategory) => {
     switch (+c) {
@@ -94,32 +95,34 @@ const ProjectCard = (probs: { project: Project }) => {
     )
 }
 
-export const getButton = (urlType: UrlType, url: string) => {
+export const getButton = (urlType: UrlType, url: string, projectName?: string) => {
+    const onClick = () => trackEvent('project_link_click', { project: projectName ?? 'unknown', type: UrlType[urlType] })
+
     switch (+urlType) {
         case UrlType.github:
             return (
-                <a href={url} target="_blank" rel="noreferrer" className="btn-outline-soft text-sm">
+                <a href={url} target="_blank" rel="noreferrer" onClick={onClick} className="btn-outline-soft text-sm">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.4 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6C20.6 22.3 24 17.8 24 12.5 24 5.9 18.6.5 12 .5z"/></svg>
                     View on GitHub
                 </a>
             )
         case UrlType.youtube:
             return (
-                <a href={url} target="_blank" rel="noreferrer" className="btn-outline-soft text-sm">
+                <a href={url} target="_blank" rel="noreferrer" onClick={onClick} className="btn-outline-soft text-sm">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="#ef4444"><path d="M23.5 6.2s-.2-1.6-.9-2.3c-.9-1-1.9-1-2.4-1.1C16.8 2.5 12 2.5 12 2.5s-4.8 0-8.2.3c-.5.1-1.5.1-2.4 1.1C.7 4.6.5 6.2.5 6.2S.2 8 .2 9.8v1.9c0 1.8.3 3.6.3 3.6s.2 1.6.9 2.3c.9 1 2.1.9 2.6 1 1.9.2 8 .3 8 .3s4.8 0 8.2-.3c.5-.1 1.5-.1 2.4-1.1.7-.7.9-2.3.9-2.3s.3-1.8.3-3.6V9.8c0-1.8-.3-3.6-.3-3.6zM9.8 14V7.9l6.3 3-6.3 3.1z"/></svg>
                     Watch on YouTube
                 </a>
             )
         case UrlType.website:
             return (
-                <a href={url} target="_blank" rel="noreferrer" className="btn-primary-accent text-sm">
+                <a href={url} target="_blank" rel="noreferrer" onClick={onClick} className="btn-primary-accent text-sm">
                     Visit website
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
                 </a>
             )
         case UrlType.googlePlay:
             return (
-                <a href={url} target="_blank" rel="noreferrer">
+                <a href={url} target="_blank" rel="noreferrer" onClick={onClick}>
                     <img
                         alt="Get it on Google Play"
                         src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"

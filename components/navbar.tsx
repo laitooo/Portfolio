@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { trackEvent } from '../lib/analytics'
 
 const links = [
     { href: '/', label: 'Home' },
@@ -81,6 +82,7 @@ const NavBar: NextPage = () => {
                             href="/files/AlzobairElkhalifaCv.pdf"
                             target="_blank"
                             rel="noreferrer"
+                            onClick={() => trackEvent('download_cv', { from: 'navbar' })}
                             className="btn-primary-accent text-sm"
                         >
                             Resume
@@ -123,6 +125,7 @@ const NavBar: NextPage = () => {
                                 href="/files/AlzobairElkhalifaCv.pdf"
                                 target="_blank"
                                 rel="noreferrer"
+                                onClick={() => trackEvent('download_cv', { from: 'navbar_mobile' })}
                                 className="mt-2 btn-primary-accent justify-center text-sm"
                             >
                                 Download Resume
