@@ -126,8 +126,106 @@ const Home: NextPage = () => {
                     </div>
                 </div>
 
+                {/* FEATURED APP */}
+                <a
+                    href="https://play.google.com/store/apps/details?id=zxc.laitooo.manga.online"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Manga Online on Google Play"
+                    className="mt-16 md:mt-24 group block surface p-6 md:p-10 relative overflow-hidden hover:border-emerald-400/40 transition"
+                >
+                    <div className="absolute -top-24 -right-24 w-[32rem] h-[32rem] rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
+                    <div className="absolute -bottom-32 -left-24 w-[28rem] h-[28rem] rounded-full bg-cyan-500/[0.08] blur-3xl pointer-events-none" />
+
+                    <div className="relative grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                        <div className="lg:col-span-7 min-w-0">
+                            <div className="flex flex-wrap items-center gap-2">
+                                <span className="chip chip-accent">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
+                                    Featured app
+                                </span>
+                                <span className="chip">Flutter</span>
+                                <span className="chip">Android</span>
+                            </div>
+
+                            <div className="mt-5 flex items-center gap-5">
+                                <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] shrink-0 shadow-lg shadow-emerald-500/10">
+                                    <Image
+                                        src="/screenshots/covers/manga.jpg"
+                                        alt="Manga Online icon"
+                                        layout="fill"
+                                        objectFit="cover"
+                                    />
+                                </div>
+                                <div className="min-w-0">
+                                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight truncate">
+                                        Manga Online
+                                    </h2>
+                                    <p className="mt-1 text-sm text-slate-400">
+                                        A reader for Asian manga · <span className="text-slate-300">4.2 ★</span> on Google Play
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="mt-7 flex items-end gap-3">
+                                <span className="text-5xl md:text-6xl lg:text-7xl font-bold gradient-text tracking-tight leading-none">
+                                    1.99M+
+                                </span>
+                                <span className="pb-2 text-sm md:text-base text-slate-400 uppercase tracking-widest">
+                                    downloads<br className="hidden sm:block" /> on Google Play
+                                </span>
+                            </div>
+
+                            <p className="mt-5 max-w-xl text-slate-300 text-base md:text-lg leading-relaxed">
+                                Simple, fast, and focused on the reading experience — the app I&apos;m proudest of shipping, now with nearly <span className="text-white font-semibold">two million</span> downloads.
+                            </p>
+
+                            <div className="mt-7 flex flex-wrap gap-3">
+                                <span className="btn-primary-accent pointer-events-none">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                                        <path d="M3.6 2.3c-.4.3-.6.8-.6 1.4v16.6c0 .6.2 1.1.6 1.4l9.5-9.7-9.5-9.7zm10.6 10.8l2.6 2.6-11.2 6.4 8.6-9zm0-2.2l-8.6-9 11.2 6.4-2.6 2.6zm6.6-1.2c.9.5 1.3 1.2 1.3 1.9s-.4 1.4-1.3 1.9l-2.4 1.4-2.9-2.9 2.9-2.9 2.4 1.6z"/>
+                                    </svg>
+                                    Get it on Google Play
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
+                                        <path d="M5 12h14"/><path d="M13 5l7 7-7 7"/>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Screenshots stack */}
+                        <div className="lg:col-span-5 relative h-[380px] md:h-[460px] lg:h-[500px] hidden sm:block">
+                            {['/screenshots/manga/1.jpg', '/screenshots/manga/2.jpg', '/screenshots/manga/3.jpg'].map((src, i) => {
+                                const positions = [
+                                    'left-[8%]  top-6 rotate-[-8deg] z-10',
+                                    'left-[32%] top-0 rotate-[0deg]  z-20',
+                                    'left-[56%] top-6 rotate-[8deg]  z-10',
+                                ]
+                                return (
+                                    <div
+                                        key={src}
+                                        className={
+                                            'absolute w-[42%] md:w-[38%] aspect-[9/19] rounded-[2rem] overflow-hidden border border-white/10 bg-black shadow-2xl shadow-black/50 transition-transform duration-500 group-hover:-translate-y-1 ' +
+                                            positions[i]
+                                        }
+                                        style={{ transitionDelay: `${i * 60}ms` }}
+                                    >
+                                        <Image
+                                            src={src}
+                                            alt=""
+                                            layout="fill"
+                                            objectFit="cover"
+                                        />
+                                        <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem]" />
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </a>
+
                 {/* stats bar */}
-                <div className="mt-16 md:mt-24 surface p-6 md:p-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="mt-10 md:mt-14 surface p-6 md:p-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
                     {stats.map((s) => (
                         <div key={s.label}>
                             <p className="text-3xl md:text-4xl font-semibold gradient-text tracking-tight">{s.value}</p>

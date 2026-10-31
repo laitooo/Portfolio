@@ -1,0 +1,46 @@
+{
+    "AE": [
+        { "name": "Dubai", "lat": 25.2048, "lng": 55.2708 },
+        { "name": "Abu Dhabi", "lat": 24.4539, "lng": 54.3773 },
+        { "name": "Ajman", "lat": 25.4052, "lng": 55.5136 },
+        { "name": "Sharjah", "lat": 25.3463, "lng": 55.4209 },
+        { "name": "Khor Fakkan", "lat": 25.3313, "lng": 56.3419 },
+        { "name": "Hatta", "lat": 24.7996, "lng": 56.1307 }
+    ],
+    "MY": [
+        { "name": "Kuala Lumpur", "lat": 3.1390, "lng": 101.6869 },
+        { "name": "Langkawi", "lat": 6.3500, "lng": 99.8000 }
+    ],
+    "KE": [
+        { "name": "Nairobi", "lat": -1.2921, "lng": 36.8219 },
+        { "name": "Mombasa", "lat": -4.0435, "lng": 39.6682 }
+    ],
+    "EG": [
+        { "name": "Cairo", "lat": 30.0444, "lng": 31.2357 },
+        { "name": "Alexandria", "lat": 31.2001, "lng": 29.9187 }
+    ],
+    "MA": [
+        { "name": "Casablanca", "lat": 33.5731, "lng": -7.5898 },
+        { "name": "Marrakech", "lat": 31.6295, "lng": -7.9811 },
+        { "name": "Tangier", "lat": 35.7595, "lng": -5.8340 }
+    ],
+    "LK": [
+        { "name": "Colombo", "lat": 6.9271, "lng": 79.8612 },
+        { "name": "Galle", "lat": 6.0535, "lng": 80.2210 },
+        { "name": "Kandy", "lat": 7.2906, "lng": 80.6337 },
+        { "name": "Sigiriya", "lat": 7.9570, "lng": 80.7603 },
+        { "name": "Ella", "lat": 6.8667, "lng": 81.0466 },
+        { "name": "Diyaluma", "lat": 6.7306, "lng": 81.0314 }
+    ],
+    "SD": [
+        { "name": "Khartoum", "lat": 15.5007, "lng": 32.5599 },
+        { "name": "Port Sudan", "lat": 19.6158, "lng": 37.2164 },
+        { "name": "Kassala", "lat": 15.4500, "lng": 36.4000 },
+        { "name": "Wad Madani", "lat": 14.4000, "lng": 33.5167 },
+        { "name": "Elgadarif", "lat": 14.0333, "lng": 35.4000 },
+        { "name": "Atbara", "lat": 17.7022, "lng": 33.9867 },
+        { "name": "Dongola", "lat": 19.1667, "lng": 30.4833 },
+        { "name": "Sennar", "lat": 13.5500, "lng": 33.6167 },
+        { "name": "Halfa", "lat": 21.8000, "lng": 31.3500 }
+    ]
+}
