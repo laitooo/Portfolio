@@ -2,6 +2,15 @@
     "games": [
         {
             "rating": 10,
+            "name": "Days Gone Remastered",
+            "image": "/images/playstation/days-gone-remastered.jpg",
+            "url": "https://en.wikipedia.org/wiki/Days_Gone",
+            "genre": "Open World Action-Adventure",
+            "year": 2025,
+            "platform": "PS5"
+        },
+        {
+            "rating": 10,
             "name": "Assassin's Creed Odyssey",
             "image": "/images/playstation/ac-odyssey.png",
             "url": "https://en.wikipedia.org/wiki/Assassin%27s_Creed_Odyssey",
@@ -35,15 +44,6 @@
             "genre": "Action-RPG",
             "year": 2017,
             "platform": "PlayStation"
-        },
-        {
-            "rating": 10,
-            "name": "Days Gone Remastered",
-            "image": "/images/playstation/days-gone-remastered.jpg",
-            "url": "https://en.wikipedia.org/wiki/Days_Gone",
-            "genre": "Open World Action-Adventure",
-            "year": 2025,
-            "platform": "PS5"
         },
         {
             "rating": 8,

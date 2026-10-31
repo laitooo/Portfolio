@@ -55,6 +55,42 @@
             "year": 2023
         },
         {
+            "rating": 9,
+            "name": "THE TORTURED POETS DEPARTMENT",
+            "image": "/images/music/the-tortured-poets-department.png",
+            "url": "https://open.spotify.com/album/1Mo4aZ8pdj6L1jx8zSwJnt",
+            "artist": "Taylor Swift",
+            "genre": "Alternative / Indie Folk",
+            "year": 2024
+        },
+        {
+            "rating": 9,
+            "name": "Red (Taylor's Version)",
+            "image": "/images/music/red-taylors-version.png",
+            "url": "https://open.spotify.com/album/6kZ42qRrzov54LcAk4onW9",
+            "artist": "Taylor Swift",
+            "genre": "Country Pop / Pop Rock",
+            "year": 2021
+        },
+        {
+            "rating": 9,
+            "name": "÷ (Divide)",
+            "image": "/images/music/divide.png",
+            "url": "https://open.spotify.com/album/3T4tUhGYeRNVUGevb0wThu",
+            "artist": "Ed Sheeran",
+            "genre": "Pop",
+            "year": 2017
+        },
+        {
+            "rating": 8,
+            "name": "1989 (Taylor's Version)",
+            "image": "/images/music/1989-taylors-version.png",
+            "url": "https://open.spotify.com/album/64LU4c1nfjz1t4VnGhagcg",
+            "artist": "Taylor Swift",
+            "genre": "Synth-Pop",
+            "year": 2023
+        },
+        {
             "rating": 8,
             "name": "The Life of a Showgirl",
             "image": "/images/music/the-life-of-a-showgirl.png",
@@ -62,6 +98,24 @@
             "artist": "Taylor Swift",
             "genre": "Pop",
             "year": 2025
+        },
+        {
+            "rating": 7,
+            "name": "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
+            "image": "/images/music/ttpd-the-anthology.png",
+            "url": "https://open.spotify.com/album/5H7ixXZfsNMGbIE5OBSpcb",
+            "artist": "Taylor Swift",
+            "genre": "Alternative / Indie Folk",
+            "year": 2024
+        },
+        {
+            "rating": 7,
+            "name": "Speak Now (Taylor's Version)",
+            "image": "/images/music/speak-now-taylors-version.png",
+            "url": "https://open.spotify.com/album/5AEDGbliTTfjOB8TSm1sxt",
+            "artist": "Taylor Swift",
+            "genre": "Country Pop / Pop Rock",
+            "year": 2023
         },
         {
             "rating": 3,

@@ -10,13 +10,148 @@
             "director": "Marc Webb"
         },
         {
+            "rating": 10,
+            "name": "Deadpool & Wolverine",
+            "image": "/images/movies/deadpool-and-wolverine.jpg",
+            "url": "https://www.youtube.com/watch?v=73_1biulkYk",
+            "genre": "Action / Comedy / Superhero",
+            "year": 2024,
+            "director": "Shawn Levy"
+        },
+        {
+            "rating": 10,
+            "name": "Project Hail Mary",
+            "image": "/images/movies/project-hail-mary.jpg",
+            "url": "https://www.youtube.com/watch?v=m08TxIsFTRI",
+            "genre": "Science Fiction / Adventure",
+            "year": 2026,
+            "director": "Phil Lord, Christopher Miller"
+        },
+        {
+            "rating": 10,
+            "name": "The Odyssey",
+            "image": "/images/movies/the-odyssey.jpg",
+            "url": "https://www.youtube.com/watch?v=Mzw2ttJD2qQ",
+            "genre": "Adventure / Action / Fantasy",
+            "year": 2026,
+            "director": "Christopher Nolan"
+        },
+        {
             "rating": 8,
+            "name": "Spider-Man: Brand New Day",
+            "image": "/images/movies/spider-man-brand-new-day.jpg",
+            "url": "https://www.youtube.com/watch?v=8TZMtslA3UY",
+            "genre": "Science Fiction / Action / Adventure",
+            "year": 2026,
+            "director": "Destin Daniel Cretton"
+        },
+        {
+            "rating": 8,
+            "name": "The Fantastic 4: First Steps",
+            "image": "/images/movies/fantastic-four-first-steps.jpg",
+            "url": "https://www.youtube.com/watch?v=pAsmrKyMqaA",
+            "genre": "Science Fiction / Adventure / Action",
+            "year": 2025,
+            "director": "Matt Shakman"
+        },
+        {
+            "rating": 8,
+            "name": "Michael",
+            "image": "/images/movies/michael.jpg",
+            "url": "https://www.youtube.com/watch?v=mbtgEE6rkxw",
+            "genre": "Music / Drama",
+            "year": 2026,
+            "director": "Antoine Fuqua"
+        },
+        {
+            "rating": 8,
+            "name": "The Fall Guy",
+            "image": "/images/movies/the-fall-guy.jpg",
+            "url": "https://www.youtube.com/watch?v=j7jPnwVGdZ8",
+            "genre": "Action / Comedy / Romance",
+            "year": 2024,
+            "director": "David Leitch"
+        },
+        {
+            "rating": 8,
+            "name": "The Housemaid",
+            "image": "/images/movies/the-housemaid.jpg",
+            "url": "https://www.youtube.com/watch?v=48CtX6OgU3s",
+            "genre": "Mystery / Thriller",
+            "year": 2025,
+            "director": "Paul Feig"
+        },
+        {
+            "rating": 7,
+            "name": "The Devil Wears Prada 2",
+            "image": "/images/movies/the-devil-wears-prada-2.jpg",
+            "url": "https://www.youtube.com/watch?v=e9HXmMnUEdE",
+            "genre": "Comedy / Drama",
+            "year": 2026,
+            "director": "David Frankel"
+        },
+        {
+            "rating": 7,
             "name": "Verity",
             "image": "/images/movies/verity.jpg",
             "url": "https://www.youtube.com/watch?v=c8QY7oHGJww",
             "genre": "Psychological Thriller",
             "year": 2026,
             "director": "Michael Showalter"
+        },
+        {
+            "rating": 7,
+            "name": "Final Destination Bloodlines",
+            "image": "/images/movies/final-destination-bloodlines.jpg",
+            "url": "https://www.youtube.com/watch?v=UWMzKXsY9A4",
+            "genre": "Horror / Mystery",
+            "year": 2025,
+            "director": "Zach Lipovsky, Adam Stein"
+        },
+        {
+            "rating": 6,
+            "name": "Jurassic World Rebirth",
+            "image": "/images/movies/jurassic-world-rebirth.jpg",
+            "url": "https://www.youtube.com/watch?v=jan5CFWs9ic",
+            "genre": "Science Fiction / Adventure / Action",
+            "year": 2025,
+            "director": "Gareth Edwards"
+        },
+        {
+            "rating": 5,
+            "name": "Demon Slayer: Kimetsu no Yaiba Infinity Castle",
+            "image": "/images/movies/demon-slayer-infinity-castle.jpg",
+            "url": "https://www.youtube.com/watch?v=seX6WMONCkU",
+            "genre": "Animation / Action / Fantasy",
+            "year": 2025,
+            "director": "Haruo Sotozaki"
+        },
+        {
+            "rating": 4,
+            "name": "Beetlejuice Beetlejuice",
+            "image": "/images/movies/beetlejuice-beetlejuice.jpg",
+            "url": "https://www.youtube.com/watch?v=CoZqL9N6Rx4",
+            "genre": "Comedy / Fantasy / Horror",
+            "year": 2024,
+            "director": "Tim Burton"
+        },
+        {
+            "rating": 4,
+            "name": "Scream 7",
+            "image": "/images/movies/scream-7.jpg",
+            "url": "https://www.youtube.com/watch?v=UJrghaPJ0RY",
+            "genre": "Horror / Mystery / Crime",
+            "year": 2026,
+            "director": "Kevin Williamson"
+        },
+        {
+            "rating": 1,
+            "name": "Backrooms",
+            "image": "/images/movies/backrooms.jpg",
+            "url": "https://www.youtube.com/watch?v=0HjdiohVOik",
+            "genre": "Horror / Mystery / Science Fiction",
+            "year": 2026,
+            "director": "Kane Parsons"
         }
     ]
 }
